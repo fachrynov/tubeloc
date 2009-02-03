@@ -1,0 +1,31 @@
+﻿Application {
+	color: #000000;
+	font-family: Arial;
+	background-color:#FFFFFF;
+	theme-color: haloSilver;
+}
+
+Button {
+	font-weight: none;
+}
+
+.jumboLabel {
+	font-size: 25;
+	font-weight: bold;
+}
+
+.bigLabel {
+	font-size: 15;
+	font-weight: bold;
+}
+
+.youtubeLink {
+	padding-left: 0px;
+	padding-right: 0px;
+	text-decoration: underline;
+	rollOverColor: #FFFFFF;
+}
+
+.sliderLabels {
+	font-weight: none;
+}

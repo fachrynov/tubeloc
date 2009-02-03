@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="TubeLoc Build" default="build" basedir=".">
+	<!-- global properties -->
+	<property name="project.root" value="${basedir}"/>
+	<property name="dist.dir" value="${project.root}/dist"/>
+	<property name="as2.dir" value="${project.root}/as2"/>
+	<property name="as2.swf" value="${as2.dir}/dist/as2_tubeloc.swf"/>
+	<property name="as3.dir" value="${project.root}/as3"/>
+	<property name="as3.dist" value="${as3.dir}/dist"/>
+
+
+	<!-- :::::: clean :::::: -->
+	<target name="clean">
+		<delete dir="${dist.dir}"/>
+		<ant inheritAll="false" antfile="${as2.dir}/build.xml" target="clean" />
+		<ant inheritAll="false" antfile="${as3.dir}/build.xml" target="clean" />
+	</target>
+
+	<!-- :::::: set up :::::: -->
+	<target name="setup">
+		<mkdir dir="${dist.dir}"/>
+	</target>
+	
+	<!-- :::::: build sub projects :::::: -->
+	<target name="buildAS2">
+		<ant inheritAll="false" antfile="${as2.dir}/build.xml">
+			<!-- <property name="mtasc" value="ENTER PATH TO MTASC"/> -->
+		</ant>
+	</target>
+	<target name="buildAS3">
+		<ant inheritAll="false" antfile="${as3.dir}/build.xml">
+			<!-- <property name="FLEX_HOME" value="ENTER PATH TO Flex 3.2 MPL SDK"/> -->
+			<property name="compile.target" value="MainChromeless.as"/>
+			<!-- compile either MainChromeless.mxml, MainChromed.mxml, MainChromeless.as, MainChromed.as -->
+		</ant>
+	</target>
+	
+	<!-- :::::: assemble build products :::::: -->
+	<target name="assemble">
+		<move todir="${dist.dir}">
+			<fileset dir="${as3.dist}"/>
+		</move>
+		
+		<copy file="${as2.swf}" todir="${dist.dir}" overwrite="true" />
+	</target>
+
+	<target name="build" depends="clean,setup,buildAS2,buildAS3,assemble" />
+</project>
