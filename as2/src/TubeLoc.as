@@ -190,6 +190,7 @@ class TubeLoc {
 			dispatchCompleteEvent();
 			youtubeMovie.addEventListener(ON_STATE_CHANGE, TubeLoc.create(this, onPlayerStateChange));
 			youtubeMovie.addEventListener(ON_ERROR, TubeLoc.create(this, onPlayerError));
+			dispatchMovieUpdate();
 		} else if(hasInit) {
 			if(lastPlayerState == PLAYING_STATE) {
 				dispatchMovieProgress();
