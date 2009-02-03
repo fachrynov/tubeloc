@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="TubeLoc" default="build" basedir=".">
+	<property name="FLEX_HOME" value="/Developer/SDKs/flex_sdk_3.0.0.477_mpl"/> <!-- flex sdk location -->
+	<property name="project.root" value="${basedir}"/>
+	<property name="src.dir" value="${project.root}/src"/> <!-- actionscript source folder -->
+	<property name="tubeLocPackage" value="${src.dir}/com/enefekt/tubeloc"/>
+	<property name="lib" value="${project.root}/lib"/> <!-- local libraries and static files -->
+	<property name="dist.dir" value="${project.root}/dist"/> <!-- build product location -->
+	<property name="compile.target" value="MainChromed.mxml"/>
+	
+	<!-- flex SDK ant tasks -->
+	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" />
+
+	<!-- initialize -->
+	<target name="init" description="Preparation">
+		<mkdir dir="${dist.dir}"/>
+	</target>
+
+
+	<!-- compile app -->
+	<target name="compile" description="Compile code">
+		<mxmlc file="${src.dir}/${compile.target}"
+				debug="true" verbose-stacktraces="true"
+				optimize="true" output="${dist.dir}/TubeLoc.swf">
+			<source-path path-element="${src.dir}"/>
+		</mxmlc>
+	</target>
+
+	<target name="install" description="Put all the pieces together in the dist directory">
+		<copy file="${lib}/as2_tubeloc.swf" todir="${dist.dir}" />
+		<copy file="${lib}/TubeLoc.html" todir="${dist.dir}" />
+		<copy file="${lib}/swfobject.js" todir="${dist.dir}" />
+	</target>
+
+	<target name="clean" description="Remove build and dist directories">
+		<delete dir="${dist.dir}"/>
+	</target>
+
+	<target name="build" depends="clean,init,compile,install"/>
+</project>
