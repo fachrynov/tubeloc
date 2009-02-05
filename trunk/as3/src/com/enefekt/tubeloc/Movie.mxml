@@ -72,7 +72,7 @@
 			private function onPlayerReady(event_p:PlayerReadyEvent):void {
 				playerReady = true;
 				setMovieSize(width, height);
-				if(videoId && !chromeless) {
+				if(videoId && chromeless) {
 					youtubeMovie.loadVideoById(videoId);
 				}
 
