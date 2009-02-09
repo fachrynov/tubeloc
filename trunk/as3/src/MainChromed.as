@@ -19,8 +19,6 @@ package {
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
 
-	import flash.events.*;
-
 	import com.enefekt.tubeloc.MovieSprite;
 	import com.enefekt.tubeloc.event.*;
 
