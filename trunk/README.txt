@@ -3,7 +3,7 @@
 TubeLoc is an ActionScript 3 library that serves as an adapter to the 
 YouTube ActionScript 2 Player API.
 
-Version 0.5.0
+Version 0.5.2
 Project Homepage: http://code.google.com/p/tubeloc/
 
 
@@ -16,7 +16,7 @@ The ActionScript 3, or "as3" module is meant to be used as a library integrating
 videos into your ActionScript 3 or Flex projects.
 
 MovieSprite.as is a Sprite based class that can be used in ActionScript 3 only projects.
-Movie.mxml is a Flex based component that can be used in Flex projects.
+Movie.as is a Flex based component that can be used in Flex projects.
 
 You may only need to build one or the other.
 There is a build file at the top-level of this project to build both.
@@ -55,4 +55,4 @@ http://www.mtasc.org/
 January 28, 2009
 Ben Longoria, aka enefekt, enefekt@gmail.com
 
-Big thanks for Jeff F. and Phil on the YouTube API team for the code reviews and help!
+Big thanks for Jeff F. and Phil H. on the YouTube API team for the code reviews and help!
