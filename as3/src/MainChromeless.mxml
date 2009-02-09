@@ -61,6 +61,7 @@
 				};
 				
 				videoList = new ArrayCollection();
+				videoList.addItem({label:"Select a video", data:null});
 				videoList.addItem(djItem);
 				videoList.addItem(grafItem);
 				videoList.addItem(emceeItem);
@@ -83,6 +84,13 @@
 				var playerWidth:Number = Math.ceil(playerHeight * 1.333333);
 				return playerWidth.toString() + "x" + playerHeight.toString();
 			}
+			
+			public function loadMovie():void {
+				var newVideoId:String = loadAnotherMovie.selectedItem.data as String;
+				if(newVideoId) {
+					tubelocMovie.videoId = newVideoId;
+				}
+			}
 		]]>
 	</mx:Script>
 
@@ -90,8 +98,8 @@
 		<mx:Label text="Chromeless Player Demo" styleName="jumboLabel" />
 		<!-- video choose -->
 		<mx:HBox verticalAlign="middle">
-			<mx:ComboBox id="loadAnotherMovie" dataProvider="{videoList}" styleName="bigLabel" />
-			<mx:Button label="Load" click="{tubelocMovie.videoId = loadAnotherMovie.selectedItem.data as String;}" />
+			<mx:ComboBox id="loadAnotherMovie" dataProvider="{videoList}" styleName="bigLabel"
+							change="{loadMovie();}" />
 		</mx:HBox>
 		<!-- button controls -->
 		<mx:HBox>
