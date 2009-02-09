@@ -17,7 +17,6 @@ package com.enefekt.tubeloc {
 		
 	import flash.net.LocalConnection;
 	import flash.events.*;
-	import flash.net.LocalConnection;
 	import flash.net.URLRequest;
 	import flash.display.Loader;
 	import flash.display.Sprite;
@@ -25,12 +24,47 @@ package com.enefekt.tubeloc {
 	import flash.system.Security;
 
 	import com.enefekt.tubeloc.event.*;
-
+	
+	/**
+	 * Dispatched when there is a player error.
+	 *
+	 * @eventType com.enefekt.tubeloc.event.PlayerErrorEvent.ON_ERROR
+	 */
 	[Event(name="onError", type="com.enefekt.tubeloc.event.PlayerErrorEvent")]
+	
+	/**
+	 * Dispatched when the player state changes
+	 *
+	 * @eventType com.enefekt.tubeloc.event.MovieStateChangeEvent.ON_STATE_CHANGE
+	 */
 	[Event(name="onStateChange", type="com.enefekt.tubeloc.event.MovieStateChangeEvent")]
+	
+	/**
+	 * Dispatched when the movie content changes as a result from loading a new movie
+	 *
+	 * @eventType com.enefekt.tubeloc.event.MovieStateUpdateEvent.MOVIE_STATE_UPDATE
+	 */
 	[Event(name="onMovieStateUpdate", type="com.enefekt.tubeloc.event.MovieStateUpdateEvent")]
+	
+	/**
+	 * Dispatched as movie playback makes progress, can get updates of current playback time
+	 *
+	 * @eventType com.enefekt.tubeloc.event.MovieProgressEvent.MOVIE_PROGRESS
+	 */
 	[Event(name="onMovieProgress", type="com.enefekt.tubeloc.event.MovieProgressEvent")]
+	
+	/**
+	 * Dispatched when the player is ready to load videos and receive commands.
+	 *
+	 * @eventType com.enefekt.tubeloc.event.PlayerReadyEvent.PLAYER_READY
+	 */
 	[Event(name="onPlayerReady", type="com.enefekt.tubeloc.event.PlayerReadyEvent")]
+	
+	/**
+	 * Dispatched when the player is unloaded, and safe to remove from stage.
+	 *
+	 * @eventType com.enefekt.tubeloc.event.PlayerUnloadEvent.PLAYER_UNLOAD
+	 */
 	[Event(name="onPlayerUnload", type="com.enefekt.tubeloc.event.PlayerUnloadEvent")]
 
 	/**
