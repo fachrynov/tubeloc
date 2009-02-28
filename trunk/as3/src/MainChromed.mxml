@@ -31,7 +31,45 @@
 			 * @author Ben Longoria enefekt@gmail.com
 			 */
 			
+			[Bindable] public var videoList:ArrayCollection;
+
 			private function initMovieExample():void {
+				//create videoList with label/data name/video id
+				var djItem:Object = {
+					label:"DJ",
+					data:"q6iGexp7Pn8"
+				};
+				
+				var grafItem:Object = {
+					label:"Write Graffiti",
+					data:"bB3rMMTeCtE"
+				};
+				
+				var emceeItem:Object = {
+					label:"Emcee",
+					data:"6TAAx01TMi8"
+				};
+				
+				var beatBoxItem:Object = {
+					label:"Beatbox",
+					data:"zOq6rCsh7Mw"
+				};
+
+				var bboyItem:Object = {
+					label:"Breakdance",
+					data:"GJ1sZBTnbuE"
+				};
+				
+				videoList = new ArrayCollection();
+				videoList.addItem({label:"Select a video", data:null});
+				videoList.addItem(djItem);
+				videoList.addItem(grafItem);
+				videoList.addItem(emceeItem);
+				videoList.addItem(beatBoxItem);
+				videoList.addItem(bboyItem);
+				
+				loadAnotherMovie.selectedIndex = 5;
+				
 				//init volume
 				volumeField.text = tubelocMovie.volume.toString();
 			}
@@ -48,11 +86,23 @@
 				var playerWidth:Number = Math.ceil(playerHeight * 1.333333);
 				return playerWidth.toString() + "x" + playerHeight.toString();
 			}
+			
+			public function loadMovie():void {
+				var newVideoId:String = loadAnotherMovie.selectedItem.data as String;
+				if(newVideoId) {
+					tubelocMovie.videoId = newVideoId;
+				}
+			}
 		]]>
 	</mx:Script>
 
 	<mx:VBox width="350" verticalGap="20">
 		<mx:Label text="Chromed Player Demo" styleName="jumboLabel" />
+		<!-- video choose -->
+		<mx:HBox verticalAlign="middle">
+			<mx:ComboBox id="loadAnotherMovie" dataProvider="{videoList}" styleName="bigLabel"
+							change="{loadMovie();}" />
+		</mx:HBox>
 		<!-- button controls -->
 		<mx:HBox>
 			<mx:Button label="Pause" click="{tubelocMovie.pauseVideo();}" width="75" />
