@@ -47,7 +47,8 @@ class TubeLoc {
 
 	private var lastPlayerState:Number;
 	private var lastVideoUrl:String;
-
+	private var finalBytesLoadedEvent:Boolean = false;
+	
 	private var hasInit:Boolean = false;
 
 	public var loadInterval:Number;
@@ -200,6 +201,13 @@ class TubeLoc {
 				lastVideoUrl = newUrl;
 				dispatchMovieUpdate();
 			}
+		}
+		if(youtubeMovie.getVideoBytesLoaded() != youtubeMovie.getVideoBytesTotal()) {
+			finalBytesLoadedEvent = false;
+			dispatchMovieUpdate();
+		} else if(youtubeMovie.getVideoBytesLoaded() == youtubeMovie.getVideoBytesTotal() && !finalBytesLoadedEvent) {
+			finalBytesLoadedEvent = true;
+			dispatchMovieUpdate();
 		}
 	}
 
