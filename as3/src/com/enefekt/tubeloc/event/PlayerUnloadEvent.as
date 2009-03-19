@@ -27,5 +27,10 @@ package com.enefekt.tubeloc.event {
 		public function PlayerUnloadEvent(bubbles_p:Boolean = true, cancelable_p:Boolean = false) {
 			super(PLAYER_UNLOAD, bubbles_p, cancelable_p);
 		}
+		
+		public override function clone():Event {
+			var cloned:PlayerUnloadEvent = new PlayerUnloadEvent(bubbles, cancelable);
+			return cloned;
+		}
 	}
 }

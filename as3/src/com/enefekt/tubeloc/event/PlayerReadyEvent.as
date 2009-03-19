@@ -27,5 +27,10 @@ package com.enefekt.tubeloc.event {
 		public function PlayerReadyEvent(bubbles_p:Boolean = true, cancelable_p:Boolean = false) {
 			super(PLAYER_READY, bubbles_p, cancelable_p);
 		}
+		
+		public override function clone():Event {
+			var cloned:PlayerReadyEvent = new PlayerReadyEvent(bubbles, cancelable);
+			return cloned;
+		}
 	}
 }

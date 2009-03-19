@@ -34,5 +34,11 @@ package com.enefekt.tubeloc.event {
 		public function PlayerErrorEvent(bubbles_p:Boolean = true, cancelable_p:Boolean = false) {
 			super(ON_ERROR, bubbles_p, cancelable_p);
 		}
+		
+		public override function clone():Event {
+			var cloned:PlayerErrorEvent = new PlayerErrorEvent(bubbles, cancelable);
+			cloned.errorCode = errorCode;
+			return cloned;
+		}
 	}
 }

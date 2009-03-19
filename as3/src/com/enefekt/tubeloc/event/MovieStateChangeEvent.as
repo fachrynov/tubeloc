@@ -35,5 +35,11 @@ package com.enefekt.tubeloc.event {
 		public function MovieStateChangeEvent(bubbles_p:Boolean = true, cancelable_p:Boolean = false) {
 			super(ON_STATE_CHANGE, bubbles_p, cancelable_p);
 		}
+		
+		public override function clone():Event {
+			var cloned:MovieStateChangeEvent = new MovieStateChangeEvent(bubbles, cancelable);
+			cloned.stateCode = stateCode;
+			return cloned;
+		}
 	}
 }
