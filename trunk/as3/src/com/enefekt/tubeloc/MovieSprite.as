@@ -121,11 +121,6 @@ package com.enefekt.tubeloc {
 									chromelessPlayerAPIUrl_p:String = null,
 									wrapperUrl_p:String = null) {
 			super();
-
-			Security.allowDomain("www.youtube.com"); 
-			Security.allowDomain("gdata.youtube.com"); 
-			Security.allowInsecureDomain("gdata.youtube.com"); 
-			Security.allowInsecureDomain("www.youtube.com");
 			
 			chromeless = chromeless_p;
 			

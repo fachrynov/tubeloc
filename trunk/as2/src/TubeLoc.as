@@ -81,12 +81,6 @@ class TubeLoc {
 		Stage.scaleMode = "noScale";
 		Stage.align = "tl";
 
-		//take care of cross-domain security
-		System.security.allowDomain('www.youtube.com'); 
-		System.security.allowDomain('gdata.youtube.com'); 
-		System.security.allowInsecureDomain('gdata.youtube.com'); 
-		System.security.allowInsecureDomain('www.youtube.com'); 
-
 		//grab data from parent clip to use for LocalConnection instances
 		as3Id = _parent.as3Id;
 		as2Id = _parent.as2Id;
@@ -285,11 +279,7 @@ class TubeLoc {
 		receivingConnection.close();
 		sendingConnection.close();
 		clearInterval(loadInterval);
-		youtubeMovie.destroy(); 
-		youtubeLoader.unloadClip(youtubeMovie);
-		youtubeMovie.unloadMovie(); 
-		youtubeMovie.removeMovieClip();
-		youtubeMovie = null;
+		youtubeMovie.destroy();
 	}
 	
 	/**
