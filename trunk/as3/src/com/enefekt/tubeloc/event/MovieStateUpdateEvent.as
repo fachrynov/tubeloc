@@ -38,5 +38,20 @@ package com.enefekt.tubeloc.event {
 		public function MovieStateUpdateEvent(bubbles_p:Boolean = true, cancelable_p:Boolean = false) {
 			super(MOVIE_STATE_UPDATE, bubbles_p, cancelable_p);
 		}
+		
+		public override function clone():Event {
+			var cloned:MovieStateUpdateEvent = new MovieStateUpdateEvent(bubbles, cancelable);
+			cloned.videoBytesLoaded = videoBytesLoaded;
+			cloned.videoBytesTotal = videoBytesTotal;
+			cloned.videoStartBytes = videoStartBytes;
+			cloned.muted = muted;
+			cloned.volume = volume;
+			cloned.playerState = playerState;
+			cloned.currentTime = currentTime;
+			cloned.duration = duration;
+			cloned.videoUrl = videoUrl;
+			cloned.videoEmbedCode = videoEmbedCode;
+			return cloned;
+		}
 	}
 }
