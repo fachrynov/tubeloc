@@ -3,7 +3,7 @@
 TubeLoc is an ActionScript 3 library that serves as an adapter to the 
 YouTube ActionScript 2 Player API.
 
-Version 0.5.2
+Version 0.5.4
 Project Homepage: http://code.google.com/p/tubeloc/
 
 
@@ -28,7 +28,7 @@ Below are the requirements for building the different parts as they come.
 ::::::::: General Build Requirements :::::::::
 
 Apache Ant 1.7+
-http://opensource.adobe.com/wiki/display/flexsdk/Download+Flex+3
+http://ant.apache.org/
 
 
 ::::::::: ActionScript 3 Demo Build Requirements :::::::::
@@ -55,4 +55,4 @@ http://www.mtasc.org/
 January 28, 2009
 Ben Longoria, aka enefekt, enefekt@gmail.com
 
-Big thanks for Jeff F. and Phil H. on the YouTube API team for the code reviews and help!
+Big thanks for Jeff F. and Phil on the YouTube API team for the code reviews and help!
